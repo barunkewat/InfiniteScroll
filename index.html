@@ -85,19 +85,19 @@
 	<script src="https://unpkg.com/@studio-freight/lenis"></script>
 	<script>
 		const lenis = new Lenis({
-duration: 10, // Smooth scrolling duration ko badhaya (default: 1.2)
+duration: 30,
 easing: (t) => 1 - Math.pow(1 - t, 10),
 smooth: true,
-smoothTouch: true, // Touch devices ke liye bhi smooth scrolling enable karega
-smoothWheel: true, // Mouse wheel scrolling ke liye bhi smoothness badhaye
-gestureOrientation: "vertical", // Ensure vertical scrolling only
-infinite: true, // Looping disable
+smoothTouch: true,
+smoothWheel: true,
+gestureOrientation: "vertical",
+infinite: true,
 })
 
-// Optimized RAF function for ultra smooth scrolling
+
 function raf(time) {
 lenis.raf(time);
-requestIdleCallback(() => requestAnimationFrame(raf)); // Performance optimization
+requestIdleCallback(() => requestAnimationFrame(raf)); 
 }
 
 requestAnimationFrame(raf);
